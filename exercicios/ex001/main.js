@@ -29,7 +29,65 @@ console.log(allItems);
 const allItems = document.getElementsByClassName('items');
 
 console.log(allItems); // Não é possível usar métodos de listas (não recomendado)
+
+
+const allItems = document.getElementsByTagName("li");  // tag dos itens (li)
+console.log(allItems)
+
 */
 
-const allItems = document.getElementsByTagName("li");
-console.log(allItems)
+// remover itens
+
+/*
+const items = document.querySelector(".items");
+items.remove();
+
+
+items.firstElementChild.remove()
+items.firstElementChild,remove()
+
+items.children[0].textContent = 'Item Um';
+items.lastElementChild.innerHTML = '<h1>Hello World</1>';
+
+*/
+
+// Mudar item
+
+/*
+const button = document.querySelector('.btn');
+button.style.background = "red";
+button.style.color = "blue";
+*/
+
+const submitButton = document.querySelector("#submit-button");
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const items = document.querySelector(".items");
+const body = document.querySelector("body");
+
+submitButton.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const nameValue = nameInput.value;
+    const emailValue = emailInput.value;
+
+    if(nameValue === "" || emailValue === "") {
+       return alert('Please fill out all the fields');
+    }
+
+    myForm.style.background = 'red';
+    items.firstElementChild.textContent = nameValue;
+    items.children[1].textContent = emailValue;
+    body.style.background = "white";
+
+    // console.log(nameValue);
+    // console.log("clicked!");
+}); 
+
+/*
+nameInput.addEventListener('change', function(e){
+    console.log(e.target.value)
+})
+
+*/
